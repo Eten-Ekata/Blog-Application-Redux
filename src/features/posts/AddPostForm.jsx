@@ -24,6 +24,7 @@ const AddPostForm = () => {
             )
             setTitle('')
             setContent('')
+            window.scrollTo(0, 5000)
         }
     }
 
@@ -61,8 +62,9 @@ const AddPostForm = () => {
                 />
                 <button
                     type="button"
-                    onClick={onSavePostClicked}
+                    onClick={onSavePostClicked} 
                     disabled={!canSave}
+                    
                 >Save Post</button>
             </form>
         </section>

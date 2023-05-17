@@ -56,6 +56,9 @@ form {
   flex-direction: column;
 }
 
+form button{
+  cursor: pointer;
+}
 .postCredit {
   font-size: 1rem;
 }
