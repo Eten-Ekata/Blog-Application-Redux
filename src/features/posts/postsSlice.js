@@ -9,8 +9,8 @@ const initialState = {
     error: null
 }
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-    const response = await axios.get(POSTS_URL)
-    return response.data
+    const {data} = await axios.get(POSTS_URL)
+    return data
 })
 
 
@@ -71,9 +71,9 @@ const postsSlice = createSlice({
                     }
                     return post;
                 });
-
                 // Add any fetched posts to the array
                 state.posts = state.posts.concat(loadedPosts)
+                //console.log(state.posts)
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = 'failed'
