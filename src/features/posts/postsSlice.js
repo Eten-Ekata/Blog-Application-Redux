@@ -17,6 +17,16 @@ export const addNewPost = createAsyncThunk('posts/addNewPost', async (initialPos
     const response = await axios.post(POSTS_URL, initialPost)
     return response.data
 })
+export const updatePost = createAsyncThunk('posts/updatePost', async (initialPost) => {
+    const { id } = initialPost;
+    try {
+        const response = await axios.put(`${POSTS_URL}/${id}`, initialPost)
+        return response.data
+    } catch (err) {
+        //return err.message;
+        return initialPost; // only for testing Redux!
+    }
+})
 
 
 const postsSlice = createSlice({
