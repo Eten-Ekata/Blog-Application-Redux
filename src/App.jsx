@@ -6,7 +6,7 @@ import Layout from './components/Layout'
 import EditPostForm from './features/posts/EditPostForm'
 import UserPage from './features/users/UserPage'
 import UsersList from './features/users/UsersList'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate} from 'react-router-dom'
 function App() {
 
   return (
@@ -24,7 +24,8 @@ function App() {
           <Route index element={<UsersList />} />
           <Route path=":userId" element={<UserPage />} />
         </Route>
-
+  {/* Catch all - replace with 404 component if you want */}
+  <Route path="*" element={<Navigate to="/" replace />} />
 
       </Route>
     </Routes>
